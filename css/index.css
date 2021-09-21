@@ -9,7 +9,7 @@ html {
 	
     background-color: black;
     font-family: "Times New Roman", Times, serif;
-    color: blue;
+    color: green;
     padding: 1px;
     margin: 1px;
 }
@@ -42,8 +42,8 @@ a:hover {
 }
 
 h2 {
-	color: green;
-	font-size: 10pt;
+	color: orange;
+	font-size: 16pt;
 }
 
 
@@ -76,5 +76,5 @@ form label {
  }
  
 footer {
-    background-color: white;
+    background-color: pink;
 }
