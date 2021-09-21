@@ -1,18 +1,17 @@
 @media screen and (min-width: 480px) {
 
 
-html {
+	html {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
 	
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
-	
-    background-color: black;
-    font-family: "Times New Roman", Times, serif;
-    color: green;
-    padding: 1px;
-    margin: 1px;
-}
+		background-color: black;
+		font-family: "Times New Roman", Times, serif;
+		color: green;
+		padding: 1px;
+		margin: 1px;
+	}
 }
 
 header {
