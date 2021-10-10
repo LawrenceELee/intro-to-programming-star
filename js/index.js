@@ -4,10 +4,8 @@ let thisYear = today.getFullYear();
 
 const footer = document.querySelector('footer');
 //footer.innerHTML = thisYear;
-
 const copyright = document.createElement('p');
 copyright.innerHTML  = "&copy; Lawrence " + thisYear;
-
 footer.appendChild(copyright);
 
 let skills = ["Javascript", "HTML", "CSS", "Java", "Python", "C", "Git", "a little bit of Ruby"];
@@ -76,3 +74,12 @@ messageForm.addEventListener("submit", (e) => {
 
 
 });
+
+
+//Lesson 6.1 AJAX Basics
+
+//"fetching" from API
+let githubRequest = new XMLHttpRequest();
+let url = "https://api.github.com/users/LawrenceELee/repos"
+githubRequest.open("GET", url);
+githubRequest.send();
