@@ -77,48 +77,22 @@ messageForm.addEventListener("submit", (e) => {
 
 
 //Lesson 6.1 AJAX Basics
+//deleted the XMLHttpRequest code so it doesn't interfere with Lesson 6.2 Fetch API
 
-//"fetching" from API
-let githubRequest = new XMLHttpRequest();
-let url = "https://api.github.com/users/LawrenceELee/repos"
-githubRequest.open("GET", url);
-githubRequest.send();
+//Lesson 6.2 Fetch API
+fetch('https://api.github.com/users/LawrenceELee/repos')
+	.then(response => response.json())
+//    .then(data => console.log(data));
+	.then(data => displayGithubData(data));
 
-//doing something with the data you just fetched
-githubRequest.addEventListener('load', myGithubEventListener);
-let repositories = "";
-function myGithubEventListener(){
-	repositories = JSON.parse(this.response);	
-	console.log(`my repos: ${repositories}, length: ${repositories.length}`);
+function displayGithubData( repositories ){
+
 	let projectSection = document.querySelector('#projects');
-
 	let projectList = projectSection.querySelector('ul');
-		for(let i=0; i < repositories.length; i++){
-			let project = document.createElement('li');
-			
-			//both ways to access object values are acceptable
-			//project.innerHTML = repositories[i]['name'];
-			project.innerHTML = repositories[i].name;
-			
-			//project.innerHTML = i;
-			
-			projectList.appendChild(project);
-		}
+	
+	for(let i=0; i < repositories.length; i++){
+		let project = document.createElement('li');
+		project.innerHTML = repositories[i].name;
+		projectList.appendChild(project);
+	}
 }
-//the below console is out of scope
-//console.log(`my repos: ${repositories}, length: ${repositories.length}`);
-
-
-//display repos in list
-//this code has to be inside the function, otherwise it is out of scope and
-//won't have any data
-/*
-let projectSection = document.querySelector('#projects');
-let projectList = projectSection.querySelector('ul');
-for(let i=0; i < repositories.length; i++){
-	let project = document.createElement('li');
-	//project.innerHTML = repositories[i]['name'];
-	project.innerHTML = i;
-	projectList.appendChild(project);
-}
-*/
