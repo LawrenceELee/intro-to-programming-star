@@ -85,10 +85,40 @@ githubRequest.open("GET", url);
 githubRequest.send();
 
 //doing something with the data you just fetched
-githubRequest.addEventListener("load", myGithubEventListener);
+githubRequest.addEventListener('load', myGithubEventListener);
+let repositories = "";
 function myGithubEventListener(){
-	let repositories = JSON.parse(this.response);	
-	console.log(`my repos: ${repositories}`);
+	repositories = JSON.parse(this.response);	
+	console.log(`my repos: ${repositories}, length: ${repositories.length}`);
+	let projectSection = document.querySelector('#projects');
+
+	let projectList = projectSection.querySelector('ul');
+		for(let i=0; i < repositories.length; i++){
+			let project = document.createElement('li');
+			
+			//both ways to access object values are acceptable
+			//project.innerHTML = repositories[i]['name'];
+			project.innerHTML = repositories[i].name;
+			
+			//project.innerHTML = i;
+			
+			projectList.appendChild(project);
+		}
 }
+//the below console is out of scope
+//console.log(`my repos: ${repositories}, length: ${repositories.length}`);
 
 
+//display repos in list
+//this code has to be inside the function, otherwise it is out of scope and
+//won't have any data
+/*
+let projectSection = document.querySelector('#projects');
+let projectList = projectSection.querySelector('ul');
+for(let i=0; i < repositories.length; i++){
+	let project = document.createElement('li');
+	//project.innerHTML = repositories[i]['name'];
+	project.innerHTML = i;
+	projectList.appendChild(project);
+}
+*/
