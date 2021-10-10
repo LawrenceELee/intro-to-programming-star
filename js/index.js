@@ -83,3 +83,12 @@ let githubRequest = new XMLHttpRequest();
 let url = "https://api.github.com/users/LawrenceELee/repos"
 githubRequest.open("GET", url);
 githubRequest.send();
+
+//doing something with the data you just fetched
+githubRequest.addEventListener("load", myGithubEventListener);
+function myGithubEventListener(){
+	let repositories = JSON.parse(this.response);	
+	console.log(`my repos: ${repositories}`);
+}
+
+
