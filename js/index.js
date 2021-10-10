@@ -74,3 +74,12 @@ messageForm.addEventListener("submit", (e) => {
 
 
 });
+
+
+//Lesson 6.1 AJAX Basics
+
+//"fetching" from API
+let githubRequest = new XMLHttpRequest();
+let url = "https://api.github.com/users/LawrenceELee/repos"
+githubRequest.open("GET", url);
+githubRequest.send();
