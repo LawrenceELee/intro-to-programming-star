@@ -94,8 +94,30 @@ function displayGithubData( repositories ){
 	let projectList = projectSection.querySelector('ul');
 	
 	for(let i=0; i < repositories.length; i++){
+		
 		let project = document.createElement('li');
 		project.innerHTML = repositories[i].name;
 		projectList.appendChild(project);
+		
+		//create links to the repos
+		let aTag = document.createElement('a');
+		let projLink = document.createTextNode('' + repositories[i].name);
+		
+		//append text node to anchor element
+		aTag.appendChild(projLink);
+		
+		//set the title
+		aTag.title = "" + i;
+		
+		//set href property to html_url
+		aTag.href = repositories[i].html_url;
+		
+		//append anchor elmt to list
+		projectList.appendChild(aTag);
+		
 	}
 }
+
+
+
+
