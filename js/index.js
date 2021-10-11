@@ -83,7 +83,10 @@ messageForm.addEventListener("submit", (e) => {
 fetch('https://api.github.com/users/LawrenceELee/repos')
 	.then(response => response.json())
 //    .then(data => console.log(data));
-	.then(data => displayGithubData(data));
+	.then( (data) => displayGithubData(data))
+	.catch( (error) => {
+		console.log(error);
+	});
 
 function displayGithubData( repositories ){
 
